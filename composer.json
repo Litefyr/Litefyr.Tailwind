@@ -1,0 +1,21 @@
+{
+    "name": "litefyr/tailwind",
+    "description": "Tailwind settings",
+    "type": "neos-build",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Litefyr\\Tailwind\\": "Classes/"
+        }
+    },
+    "require": {
+        "carbon/pipeline": "^0.15"
+    },
+    "authors": [
+        {
+            "name": "Jon Uhlmann",
+            "email": "hello@uhlmann.pro",
+            "homepage": "https://www.uhlmann.pro"
+        }
+    ]
+}
