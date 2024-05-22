@@ -137,6 +137,38 @@ export default plugin.withOptions(
                     },
                 );
 
+                // Add minimal lightness for contrast colors
+                matchUtilities(
+                    {
+                        [`${base}-min-lightness`]: (value) => {
+                            return {
+                                [`--tw-${base}-l-offset`]: `max(0, ${value} - var(--tw-${base}-l))`,
+                            };
+                        },
+                    },
+                    {
+                        values: theme("lightnessOffset"),
+                        type: ["number"],
+                        supportsNegativeValues: false,
+                    },
+                );
+
+                // Add maximal lightness for contrast colors
+                matchUtilities(
+                    {
+                        [`${base}-max-lightness`]: (value) => {
+                            return {
+                                [`--tw-${base}-l-offset`]: `calc(max(0, var(--tw-${base}-l) - ${value}) * -1)`,
+                            };
+                        },
+                    },
+                    {
+                        values: theme("lightnessOffset"),
+                        type: ["number"],
+                        supportsNegativeValues: false,
+                    },
+                );
+
                 // Re-add position options for gradient-color-stops
                 ["from", "via", "to"].forEach((position) => {
                     matchUtilities(

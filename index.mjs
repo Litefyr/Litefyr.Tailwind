@@ -42,10 +42,11 @@ const defaultPluginSettings = {
     },
 };
 
-export default function config({ pluginSettings, theme } = {}) {
+export default function config({ pluginSettings, theme, corePlugins } = {}) {
     // Merge default settings with custom settings
     theme = merge({ extend: { ...ExtendTheme, typography } }, theme || {});
     pluginSettings = merge(defaultPluginSettings, pluginSettings || {});
+    corePlugins = corePlugins || {};
 
     /** @type {import('tailwindcss').Config} */
     return {
@@ -72,5 +73,6 @@ export default function config({ pluginSettings, theme } = {}) {
             SpacingUtilities,
             TextShadow,
         ],
+        corePlugins,
     };
 }
