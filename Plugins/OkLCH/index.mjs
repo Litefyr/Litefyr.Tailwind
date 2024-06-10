@@ -103,6 +103,11 @@ export default plugin.withOptions(
                                 }
                             } else if (!corePlugins(opacityPlugin)) {
                                 Object.assign(result, addProperties(colorValue));
+                                if (typeof additionalProperty == "function") {
+                                    Object.assign(result, additionalProperty({ value }));
+                                } else if (typeof additionalProperty == "object") {
+                                    Object.assign(result, additionalProperty);
+                                }
                             } else {
                                 Object.assign(
                                     result,
@@ -112,6 +117,11 @@ export default plugin.withOptions(
                                         variable: `--tw-${base}-opacity`,
                                     }),
                                 );
+                                if (typeof additionalProperty == "function") {
+                                    Object.assign(result, additionalProperty({ value }));
+                                } else if (typeof additionalProperty == "object") {
+                                    Object.assign(result, additionalProperty);
+                                }
                             }
                             return selector ? { [selector]: result } : result;
                         },
