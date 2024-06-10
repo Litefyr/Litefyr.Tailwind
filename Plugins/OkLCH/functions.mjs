@@ -1,7 +1,7 @@
 import { parseColor, formatColor } from "tailwindcss/lib/util/color";
 
 export function flattenColorPalette(colors) {
-    return Object.assign(
+    const values = Object.assign(
         {},
         ...Object.entries(colors !== null && colors !== void 0 ? colors : {}).flatMap(([color, values]) =>
             typeof values == "object"
@@ -15,6 +15,14 @@ export function flattenColorPalette(colors) {
                   ],
         ),
     );
+
+    // Remove the DEFAULT key, as we don't want to have default colors to utilites.
+    // Example: border-l should generate only the with of the left border and do not add a default color
+    if (values.DEFAULT) {
+        delete values.DEFAULT;
+    }
+
+    return values;
 }
 
 export function withAlphaVariable({ color, property, variable }) {
