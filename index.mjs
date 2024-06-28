@@ -1,6 +1,5 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import typography from "./typography.mjs";
-import formPlugin from "@tailwindcss/forms";
 import containerQueriesPlugin from "@tailwindcss/container-queries";
 import typographyPlugin from "@tailwindcss/typography";
 import utopiaPlugin from "@domchristie/tailwind-utopia";
@@ -55,7 +54,6 @@ export default function config({ pluginSettings, theme, corePlugins } = {}) {
         plugins: [
             utopiaPlugin,
             OkLCH(pluginSettings.oklch),
-            formPlugin(pluginSettings.form),
             containerQueriesPlugin,
             typographyPlugin,
             ClipPathUtilities,

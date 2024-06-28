@@ -39,8 +39,7 @@ export default {
         image: getBorderRadius("image"),
         button: getBorderRadius("button"),
         scroller: getBorderRadius("scroller"),
-        // 30px is the maximal border radius for inputs
-        input: getBorderRadius("button", "4px", "30px"),
+        input: getBorderRadius("input", "4px"),
     },
     maxWidth: {
         content: "var(--content-max-width)",
@@ -56,12 +55,8 @@ function getFontWeight(name, fallback = false) {
     return `var(--font-weight-${name}${getFallback(fallback)})`;
 }
 
-function getBorderRadius(name, fallback = false, max = false) {
-    const value = `var(--rounded-${name}${getFallback(fallback)})`;
-    if (max === false) {
-        return value;
-    }
-    return `min(${value}, ${max})`;
+function getBorderRadius(name, fallback = false) {
+    return `var(--rounded-${name}${getFallback(fallback)})`;
 }
 
 function getColorCustomProperties(name) {
