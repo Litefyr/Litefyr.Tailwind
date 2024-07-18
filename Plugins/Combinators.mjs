@@ -54,6 +54,9 @@ export default plugin(({ addVariant, matchVariant }) => {
     // Add inputs content variant
     addVariant("inputs", ["& :where(input,select,textarea)", "&:where(input,select,textarea)"]);
 
+    // Add photoswipe variant. Used if the class should only set if the lightbox is active
+    addVariant("photoswipe", ":where(.jonnitto-photoswipe-content) &");
+
     // Add inside variant
     addVariant("inside", "&*");
 
