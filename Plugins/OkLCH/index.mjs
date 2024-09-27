@@ -21,14 +21,8 @@ const propertyColors = Object.fromEntries(
 );
 
 export default plugin.withOptions(
-    ({ contrastThreshold = 0.6, precision = 6, minContrastLightness = 0, maxContrastLightness = 1 } = {}) => {
+    ({ precision = 6 } = {}) => {
         return ({ matchUtilities, theme, corePlugins, addDefaults }) => {
-            addDefaults("infinity", {
-                "--tw-infinite": "99999",
-                "--tw-lightness-threshold": contrastThreshold.toString(),
-                "--tw-min-contrast-lightness": minContrastLightness.toString(),
-                "--tw-max-contrast-lightness": maxContrastLightness.toString(),
-            });
             // Since the gradient-color-stops didn't get written, we need to add them manually.
             // @defaults gradient-color-stops does not work here.
             addDefaults("gradient-color-stops", {
@@ -71,9 +65,10 @@ export default plugin.withOptions(
                                 );
                                 if (match) {
                                     const [, l, c, h, a] = match;
+                                    const alpha = typeof a == "string" ? a : Number(a) || 1;
                                     color = {
                                         oklch: { l, c, h },
-                                        alpha: Number(a) || 1,
+                                        alpha,
                                     };
                                 }
                             }

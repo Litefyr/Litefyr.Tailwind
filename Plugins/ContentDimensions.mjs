@@ -41,7 +41,7 @@ export default plugin.withOptions(
         };
     },
     function (options = {}) {
-        if (options.gap) {
+        if ("gap" in options) {
             delete options.gap;
         }
 

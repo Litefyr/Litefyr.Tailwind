@@ -9,7 +9,7 @@ import {
     ColorScheme,
     Combinators,
     ContentDimensions,
-    DynamicGrid,
+    Dynamic,
     ExtendTheme,
     Hocus,
     LightMode,
@@ -32,9 +32,7 @@ const defaultPluginSettings = {
         wideSlider: parseInt(defaultTheme.screens.xl) + 160 + "px",
     },
     oklch: {
-        contrastThreshold: 0.65,
-        minContrastLightness: 0.05,
-        maxContrastLightness: 0.95,
+        precision: 6,
     },
     forms: {
         strategy: "class",
@@ -60,7 +58,7 @@ export default function config({ pluginSettings, theme, corePlugins } = {}) {
             ColorScheme,
             Combinators,
             ContentDimensions(pluginSettings.contentDimensions),
-            DynamicGrid,
+            Dynamic,
             Hocus,
             LightMode,
             NotDisabled,

@@ -2,7 +2,7 @@ import ClipPathUtilities from "./ClipPathUtilities.mjs";
 import ColorScheme from "./ColorScheme.mjs";
 import Combinators from "./Combinators.mjs";
 import ContentDimensions from "./ContentDimensions.mjs";
-import DynamicGrid from "./DynamicGrid.mjs";
+import Dynamic from "./Dynamic.mjs";
 import ExtendTheme from "./ExtendTheme.mjs";
 import Hocus from "./Hocus.mjs";
 import LightMode from "./LightMode.mjs";
@@ -20,7 +20,7 @@ export {
     ColorScheme,
     Combinators,
     ContentDimensions,
-    DynamicGrid,
+    Dynamic,
     ExtendTheme,
     Hocus,
     LightMode,
