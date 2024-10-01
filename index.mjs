@@ -24,18 +24,14 @@ import {
 } from "./Plugins/index.mjs";
 
 const defaultPluginSettings = {
+    sliderContentDimensionAddedValue: 160,
     contentDimensions: {
         gap: defaultTheme.spacing["20"],
         content: "56rem",
         wide: defaultTheme.screens.xl,
-        contentSlider: "66rem",
-        wideSlider: parseInt(defaultTheme.screens.xl) + 160 + "px",
     },
     oklch: {
         precision: 6,
-    },
-    forms: {
-        strategy: "class",
     },
 };
 
@@ -44,6 +40,26 @@ export default function config({ pluginSettings, theme, corePlugins } = {}) {
     theme = merge({ extend: { ...ExtendTheme, typography } }, theme || {});
     pluginSettings = merge(defaultPluginSettings, pluginSettings || {});
     corePlugins = corePlugins || {};
+
+    const setSliderContentDimensions = (key) => {
+        const sliderKey = `${key}Slider`;
+        if (pluginSettings.contentDimensions[sliderKey]) {
+            return;
+        }
+
+        const isPx = pluginSettings.contentDimensions[key].endsWith("px");
+        const isRem = pluginSettings.contentDimensions[key].endsWith("rem");
+        if (!isPx && !isRem) {
+            throw new Error(`The value of ${key} must be in px or rem`);
+        }
+        const rootValue = parseInt(pluginSettings.contentDimensions[key]);
+        const addValue = pluginSettings.sliderContentDimensionAddedValue / (isPx ? 1 : 16);
+        const unit = isPx ? "px" : "rem";
+        pluginSettings.contentDimensions[sliderKey] = rootValue + addValue + unit;
+    };
+
+    setSliderContentDimensions("content");
+    setSliderContentDimensions("wide");
 
     /** @type {import('tailwindcss').Config} */
     return {

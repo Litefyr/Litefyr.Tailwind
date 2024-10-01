@@ -1,7 +1,25 @@
 import plugin from "tailwindcss/plugin";
 
 export default plugin(({ addVariant, matchVariant }) => {
-    // ad is-[selector] variant
+    // Add in-[selector] variant
+    matchVariant(
+        "in",
+        (value) => {
+            return `:where(${value}) &`;
+        },
+        {
+            values: {
+                padding: ".-padding",
+                width: ".-width",
+                "width--default": ".-width--default",
+                "width--wide": ".-width--wide",
+                "width--full": ".-width--full",
+                swiper: ".-swiper",
+            },
+        },
+    );
+
+    // Add is-[selector] variant
     matchVariant(
         "is",
         (value) => {
