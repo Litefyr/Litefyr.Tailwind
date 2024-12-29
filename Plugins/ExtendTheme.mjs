@@ -7,32 +7,11 @@ export default {
             front: getColorCustomProperties("front"),
         },
     },
-    fontSize: {
-        logo: "var(--logo-size, 2rem)",
-        logosmall: "calc(var(--logo-size, 2rem) * .8)",
-    },
     height: {
         logo: "1.25em",
     },
     maxHeight: {
         logo: "1.25em",
-    },
-    fontWeight: {
-        normal: getFontWeight("normal", 400),
-        bold: getFontWeight("bold", 700),
-        main: getFontWeight("main"),
-        "main-bold": getFontWeight("main-bold"),
-        headline: getFontWeight("headline"),
-        "headline-bold": getFontWeight("headline-bold"),
-        quote: getFontWeight("quote"),
-        "quote-bold": getFontWeight("quote-bold"),
-    },
-    fontFamily: {
-        inherit: "inherit",
-        main: getFontFamilyCustomProperties("main"),
-        headline: getFontFamilyCustomProperties("headline"),
-        quote: getFontFamilyCustomProperties("quote"),
-        button: getFontFamilyCustomProperties("button"),
     },
     borderRadius: {
         box: getBorderRadius("box"),
@@ -45,14 +24,15 @@ export default {
         content: "var(--content-max-width)",
         "content-wide": "var(--content-max-width-wide)",
     },
+    utopia: {
+        spacing: {
+            "4xl": 10,
+        },
+    },
 };
 
 function getFallback(fallback = false) {
     return fallback === false ? "" : `, ${fallback}`;
-}
-
-function getFontWeight(name, fallback = false) {
-    return `var(--font-weight-${name}${getFallback(fallback)})`;
 }
 
 function getBorderRadius(name, fallback = false) {
@@ -62,14 +42,4 @@ function getBorderRadius(name, fallback = false) {
 function getColorCustomProperties(name) {
     name = name ? `-${name}` : "";
     return `oklch(var(--color${name}-l) var(--color${name}-c) var(--color${name}-h) / <alpha-value>)`;
-}
-
-function getFontFamilyCustomProperties(name) {
-    return [
-        `var(--font-${name})`,
-        {
-            fontFeatureSettings: `var(--font-${name}--feature)`,
-            fontVariationSettings: `var(--font-${name}--variation)`,
-        },
-    ];
 }

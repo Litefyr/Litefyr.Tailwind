@@ -6,6 +6,10 @@ const round = (num) =>
 const rem = (px) => `${round(px / 16)}rem`;
 const em = (px, base) => `${round(px / base)}em`;
 
+const resetFontWeight = {
+    fontWeight: null,
+};
+
 const size = {
     fontSize: rem(18),
     lineHeight: round(32 / 18),
@@ -29,23 +33,27 @@ const size = {
         marginTop: "0",
         marginBottom: em(40, 48),
         lineHeight: round(48 / 48),
+        fontWeight: null,
     },
     h2: {
         fontSize: em(30, 18),
         marginTop: em(56, 30),
         marginBottom: em(32, 30),
         lineHeight: round(40 / 30),
+        fontWeight: null,
     },
     h3: {
         fontSize: em(24, 18),
         marginTop: em(40, 24),
         marginBottom: em(16, 24),
         lineHeight: round(36 / 24),
+        fontWeight: null,
     },
     h4: {
         marginTop: em(32, 18),
         marginBottom: em(8, 18),
         lineHeight: round(28 / 18),
+        fontWeight: null,
     },
     img: {
         marginTop: em(32, 18),
@@ -222,40 +230,16 @@ export default {
             "--tw-prose-pre-bg": "oklch(var(--color-front-l) var(--color-front-c) var(--color-front-h))",
             "--tw-prose-th-borders": "oklch(var(--color-front-l) var(--color-front-c) var(--color-front-h))",
             "--tw-prose-td-borders": "oklch(var(--color-front-l) var(--color-front-c) var(--color-front-h))",
-            h1: {
-                ...size.h1,
-                fontWeight: "var(--font-weight-headline)",
-                fontFamily: "var(--font-headline)",
-                fontFeatureSettings: "var(--font-headline--feature)",
-                fontVariationSettings: "var(--font-headline--variation)",
-            },
-            h2: {
-                ...size.h2,
-                fontWeight: "var(--font-weight-headline)",
-                fontFamily: "var(--font-headline)",
-                fontFeatureSettings: "var(--font-headline--feature)",
-                fontVariationSettings: "var(--font-headline--variation)",
-            },
-            h3: {
-                ...size.h3,
-                fontWeight: "var(--font-weight-headline)",
-                fontFamily: "var(--font-headline)",
-                fontFeatureSettings: "var(--font-headline--feature)",
-                fontVariationSettings: "var(--font-headline--variation)",
-            },
-            h4: {
-                ...size.h4,
-                fontWeight: "var(--font-weight-headline)",
-                fontFamily: "var(--font-headline)",
-                fontFeatureSettings: "var(--font-headline--feature)",
-                fontVariationSettings: "var(--font-headline--variation)",
-            },
-            h5: {
-                fontWeight: "var(--font-weight-headline)",
-                fontFamily: "var(--font-headline)",
-                fontFeatureSettings: "var(--font-headline--feature)",
-                fontVariationSettings: "var(--font-headline--variation)",
-            },
+            h1: size.h1,
+            h2: size.h2,
+            h3: size.h3,
+            h4: size.h4,
+            h5: resetFontWeight,
+            "h1 strong": resetFontWeight,
+            "h2 strong": resetFontWeight,
+            "h3 strong": resetFontWeight,
+            "h4 strong": resetFontWeight,
+            "h5 strong": resetFontWeight,
             blockquote: {
                 ...size.blockquote,
                 paddingTop: "1rem",
@@ -272,6 +256,7 @@ export default {
                     marginBottom: "0",
                 },
             },
+            "blockquote strong": resetFontWeight,
             strong: {
                 fontWeight: "var(--font-weight-bold)",
             },

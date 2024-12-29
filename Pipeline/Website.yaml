@@ -1,0 +1,50 @@
+packages:
+  - package: Litefyr.Distribution
+    ignoredFiles:
+      - Backend.ts
+      - Inline.ts
+      - Main.pcss
+      - Main.ts
+  - package: ../Packages/Litefyr/Litefyr.Presentation
+    ignoredFiles: Inline.ts
+    folder:
+      input: Assets
+  - package: ../Packages/Litefyr/Litefyr.Presentation
+    folder:
+      input: Assets
+    files: Inline.ts
+    inline: true
+  - package: ../Packages/Litefyr/Litefyr.Mautic
+    noErrorIfNotAvailable: true
+    ignoredFiles: Newsletter.pcss
+  - package: ../Packages/Litefyr/Litefyr.Ajax
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Animations
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Blockquote
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Code
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.ColorGradient
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.iCal
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Meilisearch
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.PaperTiger
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Slider
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Zammad
+    noErrorIfNotAvailable: true
+
+buildDefaults:
+  content:
+    Packages: 'Packages/(Litefyr|Sites)/**/(Private|NodeTypes)/**/*.{fusion,html,js,jsx,ts,tsx,mjs,mjsx,mts,mtsx,cjs,cjsx,cts,ctsx,svelte,vue}'
+    CodePen: 'Data/(CodePenStorage|ContentBoxStorage)/**/*.html'
+    ignoreMjmlPackages: '!Packages/(Litefyr|Sites)/**/Mjml'
+    ignoreMjmlDistributionPackages: '!DistributionPackages/**/Mjml'
+
+esbuild:
+  options:
+    splitting: true

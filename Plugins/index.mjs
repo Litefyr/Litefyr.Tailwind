@@ -4,6 +4,7 @@ import Combinators from "./Combinators.mjs";
 import ContentDimensions from "./ContentDimensions.mjs";
 import Dynamic from "./Dynamic.mjs";
 import ExtendTheme from "./ExtendTheme.mjs";
+import Font from "./Font.mjs";
 import Hocus from "./Hocus.mjs";
 import LightMode from "./LightMode.mjs";
 import NotDisabled from "./NotDisabled.mjs";
@@ -22,6 +23,7 @@ export {
     ContentDimensions,
     Dynamic,
     ExtendTheme,
+    Font,
     Hocus,
     LightMode,
     NotDisabled,

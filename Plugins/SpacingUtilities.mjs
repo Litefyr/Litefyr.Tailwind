@@ -1,15 +1,11 @@
 import plugin from "tailwindcss/plugin";
 
 function headerCollapse(value) {
-    if (!value || value == "0px") {
-        return {
-            "margin-top": "calc(var(--header-height) * -1)",
-            "padding-top": "var(--header-height)",
-        };
-    }
+    const height = "var(--clippath-header-height,var(--header-height))";
+    const hasValue = value && value != "0px";
     return {
-        "margin-top": "calc(var(--header-height) * -1)",
-        "padding-top": `calc(var(--header-height) + ${value})`,
+        "margin-top": `calc(${height} * -1)`,
+        "padding-top": hasValue ? `calc(${height} + ${value})` : height,
     };
 }
 

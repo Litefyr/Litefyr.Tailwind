@@ -75,6 +75,9 @@ export default plugin(({ addVariant, matchVariant }) => {
     // Add photoswipe variant. Used if the class should only set if the lightbox is active
     addVariant("photoswipe", ":where(.jonnitto-photoswipe-content) &");
 
+    // Add has interactivity variant
+    addVariant("has-interactive", "&:has(a,button,.jonnitto-prettyembed)");
+
     // Add inside variant
     addVariant("inside", "&*");
 

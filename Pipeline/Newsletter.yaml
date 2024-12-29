@@ -1,0 +1,19 @@
+packages:
+  - package: ../Packages/Litefyr/Litefyr.Mautic
+    inline: true
+    noErrorIfNotAvailable: true
+    files: Newsletter.pcss
+
+buildDefaults:
+  content:
+    DistributionPackages: 'DistributionPackages/**/Mjml/**/*.{fusion,html,mjml}'
+    Packages: 'Packages/(Litefyr|Sites)/**/Mjml/**/*.{fusion,html,mjml}'
+
+esbuild:
+  options:
+    splitting: true
+
+postcssOptions:
+  tailwindcss:
+    config: './tailwind.newsletter.mjs'
+  remToPx: true

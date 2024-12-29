@@ -49,6 +49,9 @@ export default plugin.withOptions(
             theme: {
                 extend: {
                     screens: options,
+                    containers: {
+                        "8xl": "3200px",
+                    },
                 },
             },
         };
