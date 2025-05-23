@@ -14,9 +14,10 @@ packages:
       input: Assets
     files: Inline.ts
     inline: true
+  - package: ../Packages/Litefyr/Litefyr.AssetList
+    noErrorIfNotAvailable: true
   - package: ../Packages/Litefyr/Litefyr.Mautic
     noErrorIfNotAvailable: true
-    ignoredFiles: Newsletter.pcss
   - package: ../Packages/Litefyr/Litefyr.Ajax
     noErrorIfNotAvailable: true
   - package: ../Packages/Litefyr/Litefyr.Animations
@@ -27,9 +28,16 @@ packages:
     noErrorIfNotAvailable: true
   - package: ../Packages/Litefyr/Litefyr.ColorGradient
     noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Countdown
+    noErrorIfNotAvailable: true
   - package: ../Packages/Litefyr/Litefyr.iCal
     noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Kiosk
+    noErrorIfNotAvailable: true
+    inline: true
   - package: ../Packages/Litefyr/Litefyr.Meilisearch
+    noErrorIfNotAvailable: true
+  - package: ../Packages/Litefyr/Litefyr.Musician
     noErrorIfNotAvailable: true
   - package: ../Packages/Litefyr/Litefyr.PaperTiger
     noErrorIfNotAvailable: true
@@ -39,11 +47,11 @@ packages:
     noErrorIfNotAvailable: true
 
 buildDefaults:
+  external:
+    - '/_Resources/Static/Packages/*'
   content:
     Packages: 'Packages/(Litefyr|Sites)/**/(Private|NodeTypes)/**/*.{fusion,html,js,jsx,ts,tsx,mjs,mjsx,mts,mtsx,cjs,cjsx,cts,ctsx,svelte,vue}'
     CodePen: 'Data/(CodePenStorage|ContentBoxStorage)/**/*.html'
-    ignoreMjmlPackages: '!Packages/(Litefyr|Sites)/**/Mjml'
-    ignoreMjmlDistributionPackages: '!DistributionPackages/**/Mjml'
 
 esbuild:
   options:

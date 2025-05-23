@@ -28,7 +28,7 @@ const defaultPluginSettings = {
     sliderContentDimensionAddedValue: 160,
     contentDimensions: {
         gap: defaultTheme.spacing["20"],
-        content: "56rem",
+        content: "896px", // "56rem"
         wide: defaultTheme.screens.xl,
     },
     oklch: {

@@ -5,6 +5,7 @@ export default {
             accent: getColorCustomProperties("accent"),
             back: getColorCustomProperties("back"),
             front: getColorCustomProperties("front"),
+            header: "oklch(var(--color-transparent-header-l, var(--color-front-l)) var(--color-transparent-header-c, var(--color-front-c)) var(--color-transparent-header-h, var(--color-front-h)) / <alpha-value>)",
         },
     },
     height: {

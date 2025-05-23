@@ -22,22 +22,30 @@ const themeExtend = {
         button: getFontFamilyCustomProperties("button"),
         header: getFontFamilyCustomProperties("header"),
         footer: getFontFamilyCustomProperties("footer"),
+        countdown: getFontFamilyCustomProperties("countdown"),
     },
 };
 
 export default plugin(
     function ({ addBase }) {
-        addBase({
+        const options = {
             ".font-main": {
-                fontWeight: getFontWeight("main", "var(--font-weight-normal)"),
                 "--font-weight-bold": "var(--font-weight-main-bold, var(--font-weight-bold))",
+                fontWeight: getFontWeight("main", "var(--font-weight-normal)"),
             },
-        });
-        const options = {};
+            ".font-button": {
+                fontWeight: getFontWeight("button", "var(--font-weight-main)"),
+                textTransform: "var(--font-uppercase-button, inherit)",
+            },
+            ".font-countdown": {
+                fontWeight: getFontWeight("countdown", "var(--font-weight-main)"),
+            },
+        };
         ["headline", "quote", "header", "footer"].forEach((name) => {
             options[`.font-${name}`] = {
-                fontWeight: getFontWeight(name, "var(--font-weight-main)"),
                 "--font-weight-bold": `var(--font-weight-${name}-bold, var(--font-weight-main-bold))`,
+                fontWeight: getFontWeight(name, "var(--font-weight-main)"),
+                textTransform: `var(--font-uppercase-${name}, inherit)`,
             };
         });
 

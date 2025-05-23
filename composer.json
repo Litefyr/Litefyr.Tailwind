@@ -9,7 +9,7 @@
         }
     },
     "require": {
-        "carbon/pipeline": "^0.16.0"
+        "carbon/pipeline": "^0.17.0"
     },
     "authors": [
         {

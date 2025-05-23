@@ -56,6 +56,8 @@ export default plugin(({ addVariant, matchVariant }) => {
     addVariant("a", "& :where(a)");
     addVariant("a-hocus", "& :where(a:hover,a:focus)");
     addVariant("svg", "& :where(svg)");
+    addVariant("transparent-header", ":is(html.transparent-header .header--top) &");
+    addVariant("hide-logo-in-header", ":is(html.hide-logo-in-header .header--top) &");
 
     // Add media content variant
     addVariant("mediacontent", [
