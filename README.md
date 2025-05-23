@@ -1,6 +1,6 @@
 # Tailwind settings for Litefyr
 
-This package provides the custom tailwind settings and plugins for [LiteFyr].
+This package provides the custom tailwind settings and plugins for [Litefyr].
 
 ## Installation
 
